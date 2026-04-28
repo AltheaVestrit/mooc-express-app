@@ -1,0 +1,12 @@
+services:
+  web-app:
+    image: altheavestrit/express-app
+    ports:
+      - 8080:8080
+  watchtower:
+    image: nickfedor/watchtower
+    environment: 
+      - WATCHTOWER_POLL_INTERVAL=20
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: w
